@@ -1,0 +1,32 @@
+= AsciiDoc syntax support for Vim
+
+This is the development version of Vim's included syntax highlighting and filetype plugins for AsciiDoc.
+Generally you don't need to install these if you are running a recent version of Vim.
+
+== Overview
+
+Syntax highlighting is incredibly useful.
+In addition to making reading AsciiDoc documents much easier, syntax highlighting also helps you catch AsciiDoc syntax errors as you write your documents.
+
+This repository contains the Vim files necessary to syntax highlight AsciiDoc in Vim.
+A stable version of these files is included in the Vim distribution (see https://github.com/vim/vim/blob/master/runtime/syntax/asciidoc.vim[]).
+
+== Installation (development files)
+
+Install the highlighter by copying `asciidoc.vim` to your `$HOME/.vim/syntax` directory.
+
+NOTE: Create this directory if it doesn't already exist.
+
+You can enable syntax highlighing in one of the following ways:
+
+. Put a Vim _autocmd_ in your Vim configuration file
+. Execute the Vim command `:set syntax=asciidoc`
+. Add the following line to the end of you AsciiDoc source files:
+
+ // vim: set syntax=asciidoc:
+
+== License
+
+Copyright (C) The AsciiDoc Project.
+Distributed under the same terms as Vim itself.
+See `:help license` inside Vim.
