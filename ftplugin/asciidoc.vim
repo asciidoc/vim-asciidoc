@@ -4,17 +4,23 @@ function! AsciidocFold()
 		let nextline = getline(v:lnum + 1)
 		if (strlen(nextline) != strlen(line))
 			return "="
-		endif
-		if (nextline =~ '\v^-+$')
+		elseif (nextline =~ '\v^-+$')
 			return ">1"
-		endif
-		if (nextline =~ '\v^\~+$')
+		elseif (nextline =~ '\v^\~+$')
 			return ">2"
-		endif
-		if (nextline =~ '\v^\^+$')
+		elseif (nextline =~ '\v^\^+$')
 			return ">3"
+		elseif (nextline =~ '\v^\++$')
+			return ">4"
 		endif
-		if (nextline =~ '\v^\++$')
+	elseif (line =~ '\v^\=\=')
+		if (line =~ '\v^\=\=\s')
+			return ">1"
+		elseif (line =~ '\v^\=\=\=\s')
+			return ">2"
+		elseif (line =~ '\v^\=\=\=\s')
+			return ">3"
+		elseif (line =~ '\v^\=\=\=\=\s')
 			return ">4"
 		endif
 	endif
