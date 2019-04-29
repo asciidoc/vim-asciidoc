@@ -4,6 +4,8 @@ function! AsciidocFold()
 		let nextline = getline(v:lnum + 1)
 		if (strlen(nextline) != strlen(line))
 			return "="
+		elseif (nextline =~ '\v^\=+$')
+			return ">0"
 		elseif (nextline =~ '\v^-+$')
 			return ">1"
 		elseif (nextline =~ '\v^\~+$')
@@ -13,8 +15,10 @@ function! AsciidocFold()
 		elseif (nextline =~ '\v^\++$')
 			return ">4"
 		endif
-	elseif (line =~ '\v^\=\=')
-		if (line =~ '\v^\=\=\s')
+	elseif (line =~ '\v^\=')
+		if (line =~ '\v^\=\s')
+			return ">0"
+		elseif (line =~ '\v^\=\=\s')
 			return ">1"
 		elseif (line =~ '\v^\=\=\=\s')
 			return ">2"
@@ -22,6 +26,13 @@ function! AsciidocFold()
 			return ">3"
 		elseif (line =~ '\v^\=\=\=\=\s')
 			return ">4"
+		endif
+	elseif (line =~ '\v^----$')
+		let prevline = getline(v:lnum - 1)
+		if (prevline[0] == "[")
+			return "a1"
+		else
+			return "s1"
 		endif
 	endif
 	return "="
