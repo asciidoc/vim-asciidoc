@@ -1,3 +1,5 @@
+*NOTE*: Development of the Vim asciidoc syntax highlighting place completely in the http://github.com/vim/vim/[vim repository]. As such, this repository has been archived for historical purposes.
+
 = AsciiDoc syntax support for Vim
 
 This is the development version of Vim's included syntax highlighting and filetype plugins for AsciiDoc.
