@@ -13,6 +13,17 @@ In addition to making reading AsciiDoc documents much easier, syntax highlightin
 This repository contains the Vim files necessary to syntax highlight AsciiDoc in Vim.
 A stable version of these files is included in the Vim distribution (see https://github.com/vim/vim/blob/master/runtime/syntax/asciidoc.vim[]).
 
+== Folding
+
+Folding on the section level is included as well.
+To enable the folding, add
+
+----
+let g:asciidoc_folding=1
+----
+
+to the `.vimrc` file.
+
 == Installation (development files)
 
 Install the highlighter by copying `asciidoc.vim` to your `$HOME/.vim/syntax` directory.
